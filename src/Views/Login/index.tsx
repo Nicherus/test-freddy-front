@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import api from "../../utils/apiConfig";
 import { State, Action } from "./types";
 import { Logo, useStyles } from "./styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  TextField,
+  Button,
+} from "@material-ui/core";
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -78,7 +80,7 @@ const Login: any = () => {
 
   useEffect(() => {
     if (state.refreshToken || state.accessToken) {
-      navigate("/dashboard");
+      navigate("/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.refreshToken, state.accessToken]);
@@ -131,12 +133,7 @@ const Login: any = () => {
   };
 
   return (
-    <form
-      className={classes.container}
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSubmitLogin}
-    >
+    <form className={classes.container} noValidate onSubmit={handleSubmitLogin}>
       <Card className={classes.card}>
         <CardContent className={classes.header}>
           <div>
@@ -148,7 +145,7 @@ const Login: any = () => {
             <br />
             Candy Shop
           </div>
-          <Logo alt={"logo"} src={"./logo.svg"} />
+          <Logo alt={"logo"} src={process.env.PUBLIC_URL + "./logo.svg"} />
         </CardContent>
         <CardContent>
           <div>

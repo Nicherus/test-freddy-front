@@ -8,10 +8,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       justifyContent: "center",
 
-      marginTop: theme.spacing(10),
+      marginTop: 100,
     },
     loginButton: {
-      marginTop: theme.spacing(7),
+      marginTop: theme.spacing(5),
       textTransform: "none",
     },
     header: {
@@ -24,7 +24,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      justifyContent: "space-evenly",
+      justifyContent: "space-between",
 
       maxWidth: 300,
       padding: 25,

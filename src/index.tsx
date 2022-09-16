@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Dashboard from "./Pages/Dashboard";
-import Login from "./Pages/Login";
+import Dashboard from "./Views/Dashboard";
+import Login from "./Views/Login";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./fonts/index.css";
 
@@ -14,6 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/orders" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
