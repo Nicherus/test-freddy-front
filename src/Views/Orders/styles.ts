@@ -13,26 +13,9 @@ export const useStyles = makeStyles((theme: Theme) =>
     title: {
       marginBottom: "60px !important",
     },
-    gridCards: {
-      marginBottom: 50,
-    },
-    card: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      padding: 10,
-      marginRight: 35,
-      width: 200,
-      height: 50,
-    },
-    revenueHeader: {
+    pageHeader: {
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "center",
-      maxWidth: 800,
-    },
-    chartContainer: {
-      marginBottom: 50,
     },
   })
 );

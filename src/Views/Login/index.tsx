@@ -1,15 +1,16 @@
 import React, { useReducer, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../utils/apiConfig";
-import { State, Action } from "./types";
-import { Logo, useStyles } from "./styles";
 import {
   Card,
   CardContent,
   CardActions,
   TextField,
   Button,
+  Grid,
 } from "@material-ui/core";
+import api from "../../utils/apiConfig";
+import { State, Action } from "./types";
+import { Logo, useStyles } from "./styles";
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -85,7 +86,8 @@ const Login: any = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.refreshToken, state.accessToken]);
 
-  const handleSubmitLogin = async () => {
+  const handleSubmitLogin = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     const body = {
       username: state.username,
       password: state.password,
@@ -148,7 +150,7 @@ const Login: any = () => {
           <Logo alt={"logo"} src={process.env.PUBLIC_URL + "./logo.svg"} />
         </CardContent>
         <CardContent>
-          <div>
+          <Grid container className={classes.inputBox}>
             <TextField
               error={state.isError}
               fullWidth
@@ -167,7 +169,7 @@ const Login: any = () => {
               helperText={state.text}
               onChange={handlePasswordChange}
             />
-          </div>
+          </Grid>
 
           <CardActions>
             <Button
@@ -175,8 +177,8 @@ const Login: any = () => {
               variant="outlined"
               size="large"
               color="default"
+              type="submit"
               className={classes.loginButton}
-              onClick={handleSubmitLogin}
               disabled={state.isButtonDisabled}
             >
               Login

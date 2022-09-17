@@ -11,7 +11,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginTop: 100,
     },
     loginButton: {
-      marginTop: theme.spacing(5),
       textTransform: "none",
     },
     header: {
@@ -34,6 +33,9 @@ export const useStyles = makeStyles((theme: Theme) =>
 
       fontSize: 25,
       fontFamily: "Roboto",
+    },
+    inputBox: {
+      marginBottom: 50,
     },
   })
 );

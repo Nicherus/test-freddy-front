@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Dashboard from "./Views/Dashboard";
-import Login from "./Views/Login";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./Views/Login";
+import Dashboard from "./Views/Dashboard";
+import Orders from "./Views/Orders";
 import "./fonts/index.css";
 
 const root = ReactDOM.createRoot(
@@ -14,7 +15,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/orders" element={<Dashboard />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
