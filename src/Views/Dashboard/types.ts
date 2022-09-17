@@ -8,6 +8,11 @@ export type OrdersAndTotal = {
   total: number;
 };
 
+export type OrdersAndTotalChart = {
+  name: string;
+  value: number;
+};
+
 export type Seller = {
   product: Product;
   revenue: number;
