@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { List, ListItem, ListItemText, Drawer } from "@material-ui/core";
 import { Logo, useStyles } from "./styles";
 
-const AppDrawer: any = () => {
+const AppDrawer: React.FC = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const [accessToken, setAccessToken] = useState(localStorage.getItem("token"));
@@ -24,19 +24,24 @@ const AppDrawer: any = () => {
     setRefreshToken("");
   };
 
+  const handleGoToOrders = () => {
+    navigate("/orders");
+  };
+
+  const handleGoToDashboard = () => {
+    navigate("/");
+  };
+
   return (
     <Drawer className={classes.drawer} variant="permanent" anchor="left">
       <Logo alt={"logo"} src={process.env.PUBLIC_URL + "./logo.svg"} />
 
       <List>
         <ListItem button>
-          <ListItemText onClick={() => navigate("/")} primary={"Dashboard"} />
+          <ListItemText onClick={handleGoToDashboard} primary={"Dashboard"} />
         </ListItem>
         <ListItem button>
-          <ListItemText
-            onClick={() => navigate("/orders")}
-            primary={"Orders"}
-          />
+          <ListItemText onClick={handleGoToOrders} primary={"Orders"} />
         </ListItem>
         <ListItem button>
           <ListItemText onClick={handleLogout} primary={"Logout"} />

@@ -20,6 +20,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
+
       padding: 10,
       marginRight: 35,
       width: 200,
@@ -29,6 +30,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
+
       maxWidth: 800,
     },
     chartContainer: {

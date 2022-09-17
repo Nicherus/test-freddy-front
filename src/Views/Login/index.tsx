@@ -56,11 +56,11 @@ const initialState: State = {
   isButtonDisabled: true,
   text: "",
   isError: false,
-  accessToken: localStorage.getItem("token"),
-  refreshToken: localStorage.getItem("refresh"),
+  accessToken: "",
+  refreshToken: "",
 };
 
-const Login: any = () => {
+const Login: React.FC = () => {
   const navigate = useNavigate();
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -81,7 +81,6 @@ const Login: any = () => {
 
   useEffect(() => {
     if (state.refreshToken || state.accessToken) {
-      navigate("/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.refreshToken, state.accessToken]);
@@ -107,6 +106,8 @@ const Login: any = () => {
 
         localStorage.setItem("token", data.access_token);
         localStorage.setItem("refresh", data.refresh_token);
+
+        navigate("/");
       }
     } catch (error) {
       dispatch({

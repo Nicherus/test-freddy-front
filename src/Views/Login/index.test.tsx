@@ -1,9 +1,13 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import Dashboard from "./index";
+import { BrowserRouter as Router } from "react-router-dom";
+import Login from "./index";
 
 test("renders login", () => {
-  render(<Dashboard />);
-  const linkElement = screen.getByText("Login");
-  expect(linkElement).toBeInTheDocument();
+  render(
+    <Router>
+      <Login />
+    </Router>
+  );
+  const linkElement = screen.getAllByText("Login");
+  expect(linkElement[0]).toBeInTheDocument();
 });
